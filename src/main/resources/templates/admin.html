@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="webjars/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+// extends index.html
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Admin page statistic page (Spring Security protected)</h1>
+        <h1 th:inline="text">Hello <span sec:authentication="name"></span>!</h1>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Client email</th>
+                <th>Name</th>
+                <th>Money</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td th:utext="${totalSum}">totalSum</td>
+            </tr>
+            </tfoot>
+            <tr th:each="order : ${orders}">
+                <td th:utext="${order.email}">...</td>
+                <td th:utext="${order.name}">...</td>
+                <td th:utext="${order.total}">...</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="/static/css/main.css"/>
+    <script src="webjars/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <title>Ticket booking</title>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+    <div class="text-info">
+        <h1 align="center">Please select a seat</h1>
+    </div>
+    <div class="front">SCREEN</div>
+    <form th:action="@{/tickets}" method="post">
+        <div class="seats">
+            <div class="seat" th:each="seat : ${seats}">
+                <input type="checkbox" th:id="'seat_' + ${seat.id}" name="seat"
+                       th:value="${seat.id}"
+                       th:disabled="${seat.reserved}"/>
+                <label class="checkbox-inline" th:for="'seat_' + ${seat.id}"><span
+                        th:text="${seat.price}"></span></label>
+            </div>
+        </div>
+
+        <div class="form-footer">
+            <div class="form-group">
+                <input type="email" name="email" required="required" title="Email" placeholder="Email"
+                       class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="name" required="required" title="Name" placeholder="Name"
+                       class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Book now</button>
+            </div>
+            <div class="form-reset">
+                <button type="reset" class="btn btn-danger">Clear form</button>
+            </div>
+        </div>
+    </form>
+
+    <form action="/reset" method="post">
+        <div class="clear-form">
+            <button type="submit" class="btn bg-danger">Clear database</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+    <div th:replace="fragments/footer :: footer"/>
+</html>
+
+
+
+
+
+
