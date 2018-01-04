@@ -1,7 +1,9 @@
 package com.booking.service.impl;
 
 import com.booking.model.Seat;
+import com.booking.repository.OrderRepository;
 import com.booking.repository.SeatRepository;
+import com.booking.service.OrderService;
 import com.booking.service.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,9 @@ import java.util.List;
 public class SeatServiceImpl implements SeatService {
 
     private final SeatRepository seatRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Autowired
     public SeatServiceImpl(SeatRepository seatRepository) {

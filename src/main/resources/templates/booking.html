@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"
           href="/static/css/main.css"/>
-    <script src="webjars/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <title>Ticket booking</title>
 </head>
@@ -23,9 +24,10 @@
         <div class="seats">
             <div class="seat" th:each="seat : ${seats}">
                 <input type="checkbox" th:id="'seat_' + ${seat.id}" name="seat"
-                       th:value="${seat.id}"
-                       th:disabled="${seat.reserved}"/>
-                <label class="checkbox-inline" th:for="'seat_' + ${seat.id}"><span
+                       th:value="${seat.id}" th:disabled="${seat.reserved}"
+                       />
+                <label class="checkbox-inline" th:for="'seat_' + ${seat.id}"
+                       data-toggle="tooltip" th:title="'Row: ' + ${seat.row} + ' Seat: ' + ${seat.number}"><span
                         th:text="${seat.price}"></span></label>
             </div>
         </div>
@@ -57,6 +59,11 @@
     </form>
 
 </div>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 
 </body>
     <div th:replace="fragments/footer :: footer"/>

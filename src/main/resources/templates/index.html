@@ -1,6 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="/static/css/main.css"/>
+    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Online ticket booking service</title>
 
     <div th:replace="fragments/header :: header-css"></div>
@@ -12,10 +17,17 @@
 
 <div class="container">
 
-    <div class="starter-template">
-        <h1>Spring Boot Web Thymeleaf + Spring Security</h1>
-        <h2>1. Visit <a th:href="@{/admin}">Statistic page (Spring Security protected, Need Admin Role)</a></h2>
-        <h2>2. Visit <a th:href="@{/tickets}">Tickets page (No need authorization)</a></h2>
+    <div class="starter-template" align="center">
+        <h1>Movie</h1>
+        <!--<h2>1. Visit <a th:href="@{/admin}">Statistic page (Spring Security protected, Need Admin Role)</a></h2>-->
+        <!--<h2>2. Visit <a th:href="@{/tickets}">Tickets page (No need authorization)</a></h2>-->
+
+        <a href="/tickets" >
+            <div class="img-thumbnail">
+            <img th:src="@{images/bright.jpg}" width="374" height="720" class="img-responsive"/>
+            <button type="submit" class="btn-primary btn-block">Buy tickets</button>
+            </div>
+        </a>
     </div>
 
 </div>

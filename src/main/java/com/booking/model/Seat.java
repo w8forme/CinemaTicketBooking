@@ -7,19 +7,25 @@ import java.io.Serializable;
 
 @Entity
 @DynamicUpdate
-@Table(name = "seats")
+@Table(name = "seat")
 public class Seat implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="seat_id")
+    @Column(name="id")
     private Long id;
 
-    @JoinColumn(name = "price")
+    @Column(name = "price")
     private Integer price;
 
-    @JoinColumn(name = "reserved")
+    @Column(name = "reserved")
     private Boolean reserved;
+
+    @Column(name = "seat_row")
+    private Integer row;
+
+    @Column(name = "number")
+    private Integer number;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
@@ -57,12 +63,30 @@ public class Seat implements Serializable{
         this.order = order;
     }
 
+    public Integer getRow() {
+        return row;
+    }
+
+    public void setRow(Integer row) {
+        this.row = row;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
     @Override
     public String toString() {
         return "Seat{" +
                 "id=" + id +
                 ", price=" + price +
                 ", reserved=" + reserved +
+                ", row=" + row +
+                ", number=" + number +
                 '}';
     }
 }

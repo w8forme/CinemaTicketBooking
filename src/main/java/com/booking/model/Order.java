@@ -10,16 +10,16 @@ public class Order implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="order_id")
+    @Column(name="id")
     private Long id;
 
-    @JoinColumn(name = "email")
+    @Column(name = "email")
     private String email;
 
-    @JoinColumn(name = "name")
+    @Column(name = "name")
     private String name;
 
-    @JoinColumn(name = "total")
+    @Column(name = "total")
     private Integer total;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
