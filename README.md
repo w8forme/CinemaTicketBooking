@@ -3,14 +3,14 @@ Simple web application for ticket booking
 
 Used technologies:
 
-Spring MVC
-Spring Boot
-Spring Security
-Hibernate
-PostgresSql
-Java 8
-Thymeleaf
-Bootstrap
+* Spring MVC
+* Spring Boot
+* Spring Security
+* Hibernate
+* PostgresSql
+* Java 8
+* Thymeleaf
+* Bootstrap
 
 Software requirements:
 
