@@ -37,6 +37,7 @@ public class OrderServiceImplTest {
 
     @Test
     public void deleteAllOrders() {
+
     }
 
     @Test
@@ -66,6 +67,6 @@ public class OrderServiceImplTest {
 
     @After
     public void tearDown() throws Exception {
-        orderService.deleteAllOrders();
+        orderRepository.deleteAll();
     }
 }
