@@ -37,12 +37,15 @@ public class OrderServiceImplTest {
 
     @Test
     public void deleteAllOrders() {
-
+        orderRepository.save(orderForTest);
+        assertThat(orderRepository.getOne(orderForTest.getId())).isNotNull();
+        orderRepository.deleteAll();
+        assertThat(orderRepository.findAll()).isEmpty();
     }
 
     @Test
     public void makeOrder() {
-        orderService.makeOrder(orderForTest);
+        orderRepository.save(orderForTest);
         assertThat(orderRepository.getOne(orderForTest.getId())).isNotNull();
     }
 
