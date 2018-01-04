@@ -1,7 +1,6 @@
 package com.booking.controller;
 
 import com.booking.model.Seat;
-import com.booking.model.SeatsDTO;
 import com.booking.service.OrderService;
 import com.booking.service.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
